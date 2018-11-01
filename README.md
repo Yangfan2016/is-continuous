@@ -1,6 +1,8 @@
 ## is-continuous ![NPM version](https://img.shields.io/npm/v/is-continuous.svg?style=flat)
 
-Detects whether a string is composed of continuous characters
+> Detect whether the string consists of consecutive characters that can run on the browser and nodejs
+
+
 
 ### Installation
 ```bash
@@ -22,9 +24,17 @@ browser
 <script src="./dist/isContinuous.min.js"></script>
 ```
 
+### Apply
+
+Check the strength of the password
 
 ### API
-check this file: `src/index.js`
+
+| params | memo | type | default |
+| :----: | :--: | :--: | :-----: |
+| str | The string to be tested | string | -- |
+| step | The length of split string | number | 6 |
+
 
 ### Contributing
 - Fork this Repo first

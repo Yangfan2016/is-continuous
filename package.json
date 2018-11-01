@@ -8,11 +8,17 @@
   "author": "yangfan2016 <15234408101@163.com>",
   "license": "MIT",
   "devDependencies": {
-    "rollup-plugin-babel-minify": "^6.1.1",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "rollup": "^0.66.6",
     "rollup-plugin-json": "^3.1.0",
-    "rollup-plugin-node-resolve": "^3.4.0"
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-typescript2": "^0.17.2",
+    "rollup-plugin-uglify": "^6.0.0",
+    "typescript": "^3.1.5"
   },
   "scripts": {
-    "build":"rollup --config rollup.config.js"
+    "build": "rollup --config rollup.config.js",
+    "test": "mocha ./test/test.js"
   }
 }
