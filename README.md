@@ -1,7 +1,6 @@
 ## is-continuous ![NPM version](https://img.shields.io/npm/v/is-continuous.svg?style=flat)
 
-> Detect whether the string consists of consecutive characters that can run on the browser and nodejs
-
+> It is a tool that can run on browsers and Nodejs to detect whether strings contain continuous characters
 
 
 ### Installation
