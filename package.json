@@ -1,0 +1,18 @@
+{
+  "name": "is-continuous",
+  "version": "1.0.0",
+  "description": "Detects whether a string is composed of continuous characters",
+  "main": "dist/isContinuous.min.js",
+  "module": "dist/isContinuous.es.js",
+  "repository": "https://github.com/Yangfan2016/is-continuous.git",
+  "author": "yangfan2016 <15234408101@163.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup-plugin-babel-minify": "^6.1.1",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-resolve": "^3.4.0"
+  },
+  "scripts": {
+    "build":"rollup --config rollup.config.js"
+  }
+}
