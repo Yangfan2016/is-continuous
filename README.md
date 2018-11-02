@@ -27,6 +27,8 @@ browser
 
 Check the strength of the password
 
+![signup](https://raw.githubusercontent.com/Yangfan2016/PicBed/master/Blog/signup.png)
+
 ### API
 
 | params | memo | type | default |
