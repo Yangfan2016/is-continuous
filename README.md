@@ -1,4 +1,7 @@
-## is-continuous ![NPM version](https://img.shields.io/npm/v/is-continuous.svg?style=flat)
+## is-continuous 
+![NPM version](https://img.shields.io/npm/v/is-continuous.svg?style=flat)
+[![Build Status](https://travis-ci.org/Yangfan2016/is-continuous.svg?branch=master)](https://travis-ci.org/Yangfan2016/is-continuous)
+[![Coverage Status](https://coveralls.io/repos/github/Yangfan2016/is-continuous/badge.svg?branch=master)](https://coveralls.io/github/Yangfan2016/is-continuous?branch=master)
 
 > It is a tool that can run on browsers and Nodejs to detect whether strings contain continuous characters
 
