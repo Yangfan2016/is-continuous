@@ -21,7 +21,7 @@
   },
   "scripts": {
     "build": "rollup --config rollup.config.js",
-    "test": "mocha ./test/test.js",
+    "test": "mocha ./test/isContinuous.test.js",
     "cover": "istanbul cover node_modules/mocha/bin/_mocha",
     "coveralls": "yarn run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   }

@@ -1,7 +1,7 @@
 let expect=require("chai").expect;
 let isContinous=require("../dist/isContinuous.min.js");
 
-describe("robustness",function () {
+describe("Robustness",function () {
     it("The illegal input e.g. 'isContinous(NaN)'",function () {
         expect(isContinous(NaN))
         .to
@@ -22,16 +22,40 @@ describe("robustness",function () {
     });
 });
 
-describe("default",function () {
+describe("Default and border",function () {
     it("'12345' default step is 6",function () {
         expect(isContinous('12345'))
         .to
         .be
         .equal(false);
     });
+    it(`The length of the string must be greater than 1, e.g. isContinous("")`,function () {
+        expect(isContinous(""))
+        .to
+        .be
+        .equal(false);
+    });
+    it(`The length of the string must be greater than 1, e.g. isContinous("s")`,function () {
+        expect(isContinous("s"))
+        .to
+        .be
+        .equal(false);
+    });
+    it(`The step must be greater than 1, e.g. 'isContinous("123456",1)'`,function () {
+        expect(isContinous("123456",1))
+        .to
+        .be
+        .equal(false);
+    });
+    it(`The step must be greater than 1, e.g. 'isContinous("123456",0)'`,function () {
+        expect(isContinous("123456",0))
+        .to
+        .be
+        .equal(false);
+    });
 });
 
-describe("availability",function () {
+describe("Availability",function () {
     it("'123456' number",function () {
         expect(isContinous('123456'))
         .to
@@ -68,13 +92,13 @@ describe("availability",function () {
         .be
         .equal(true);
     });
-    it("'a123456' Break the string into a group according to 'step' e.g. 'a12345|6' ",function () {
+    it("'a123456'",function () {
         expect(isContinous('a123456'))
         .to
         .be
-        .equal(false);
+        .equal(true);
     });
-    it("'aaaaaa123456' Break the string into a group according to 'step' e.g. 'aaaaaa|123456'",function () {
+    it("'aaaaaa123456'",function () {
         expect(isContinous('aaaaaa123456'))
         .to
         .be

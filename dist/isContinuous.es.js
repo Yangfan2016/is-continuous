@@ -1,50 +1,46 @@
 /**
- * 判断字符串是否存在连续字符，默认子序列长度为 6
+ * 计算字符的ASCII码
+ * @param str
+ */
+function calcASCII(str) {
+    return str.charCodeAt(0);
+}
+/**
+ * 判断字符串是否存在连续字符，默认连续子序列长度为 6
  * @param {string} str 字符串
  * @param {number} step  步长
  */
 function index (str, step = 6) {
-    if (typeof str !== "string")
+    // 边界
+    if (typeof str !== "string" || str.length <= 1 || step <= 1 || isNaN(step))
         return false;
-    if (typeof step !== "number" || isNaN(step))
-        return false;
-    if (str.length < step)
-        return false; // 小于步长不做判断
-    let i = 0;
-    for (; i < str.length; i = i + step) {
-        let first = str.substr(i, i + step).split("");
-        if (first.length < step) { // 小于步长不做判断
-            return false;
-        }
-        let arr = first.map(m => {
-            return +m.charCodeAt(0);
-        });
-        let res = [];
-        // 顺序 123456 abcdef
-        for (let j = 1; j < arr.length; j++) {
-            if (arr[j - 1] + 1 === arr[j]) {
-                res[j - 1] = true;
+    var index = 0; // 计数
+    var flag = calcASCII(str[0]); // 游标
+    var isAsc = true; // 默认升序
+    var oldIsAsc = isAsc; // 存储历史记录
+    for (let i = 1; i < str.length; i++) {
+        let item = calcASCII(str[i]);
+        // 计算符号，确定升序还是降序
+        isAsc = item - flag > 0;
+        // 两数相差为1，进行计数，否则计数复位为0
+        if (item - flag === 1 * (isAsc ? 1 : -1)) {
+            // 如果连续升序，进行计数累加，否则计数置位1
+            if (oldIsAsc === isAsc) {
+                index++;
             }
             else {
-                res[j - 1] = false;
+                index = 1;
             }
         }
-        if (res.every(item => { return item === true; })) {
-            // 一组内全部匹配，返回true
-            return true;
+        else {
+            index = 0;
         }
-        res = []; // reset
-        // 逆序 654321 fedbca
-        for (let j = 1; j < arr.length; j++) {
-            if (arr[j - 1] - 1 === arr[j]) {
-                res[j - 1] = true;
-            }
-            else {
-                res[j - 1] = false;
-            }
-        }
-        if (res.every(item => { return item === true; })) {
-            // 一组内全部匹配，返回true
+        // 游标前移
+        flag = item;
+        // 更新历史记录
+        oldIsAsc = isAsc;
+        // 如果计数等于步长-1 ，则视为达到连续字符的条件
+        if (index === step - 1) {
             return true;
         }
     }
