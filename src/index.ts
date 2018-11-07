@@ -1,54 +1,33 @@
+function calcAcsII(str) {
+    return str.charCodeAt(0);
+}
 /**
  * 判断字符串是否存在连续字符，默认子序列长度为 6 
  * @param {string} str 字符串
  * @param {number} step  步长
  */
-export default function (str:string, step:number = 6):boolean {
-    if (typeof str!=="string") return false;
-    if (typeof step!=="number" || isNaN(step)) return false;
-    if (str.length < step) return false; // 小于步长不做判断
+export default function(s, step=6) {
+    // 只有一位字符串不判断
+    if (s.length <= 1 || step <= 1)
+        return false;
+    var index = 0; // 计数
+    var flag = calcAcsII(s[0]); // 游标
+    var isAsc = true; // 默认升序
+    var once = false; // 第一次赋值
 
-    let i:number = 0;
-    for (; i < str.length; i = i + step) {
-        let first = str.substr(i, i + step).split("");
-
-        if (first.length < step) { // 小于步长不做判断
-            return false;
+    for (let i = 1; i < s.length; i++) {
+        let item = calcAcsII(s[i]);
+        if (!once) {
+            isAsc = item - flag > 0;
+            once = true;
         }
-
-        let arr:number[] = first.map(m => {
-            return +m.charCodeAt(0);
-        });
-
-
-        let res:boolean[] = [];
-        // 顺序 123456 abcdef
-        for (let j = 1; j < arr.length; j++) {
-            if (arr[j - 1] + 1 === arr[j]) {
-                res[j - 1] = true;
-            } else {
-                res[j - 1] = false;
-            }
+        if (item - flag === 1 * (isAsc ? 1 : -1)) {
+            index++;
+            flag = item;
         }
-        if (res.every(item => { return item === true })) {
-            // 一组内全部匹配，返回true
-            return true
-        }
-
-        res = []; // reset
-
-        // 逆序 654321 fedbca
-        for (let j = 1; j < arr.length; j++) {
-            if (arr[j - 1] - 1 === arr[j]) {
-                res[j - 1] = true;
-            } else {
-                res[j - 1] = false;
-            }
-        }
-        if (res.every(item => { return item === true })) {
-            // 一组内全部匹配，返回true
-            return true
+        if (index === step - 1) {
+            return true;
         }
     }
     return false;
-};
+}
