@@ -37,7 +37,7 @@ Check the strength of the password
 | params | memo | type | default |
 | :----: | :--: | :--: | :-----: |
 | str | The string to be tested | string | -- |
-| step | The length of continous substring | number | 6 |
+| step | The length of continuous substring | number | 6 |
 
 
 ### Contributing
