@@ -1,6 +1,6 @@
 /**
  * 计算字符的ASCII码
- * @param str 
+ * @param {string} str 
  */
 function calcASCII(str: string): number {
     return str.charCodeAt(0);
