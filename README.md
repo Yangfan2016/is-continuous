@@ -1,5 +1,5 @@
 ## is-continuous 
-![NPM version](https://img.shields.io/npm/v/is-continuous.svg?style=flat)
+[![NPM version](https://img.shields.io/npm/v/is-continuous.svg?style=flat)](https://www.npmjs.com/package/is-continuous)
 [![Build Status](https://travis-ci.org/Yangfan2016/is-continuous.svg?branch=master)](https://travis-ci.org/Yangfan2016/is-continuous)
 [![Coverage Status](https://coveralls.io/repos/github/Yangfan2016/is-continuous/badge.svg?branch=master)](https://coveralls.io/github/Yangfan2016/is-continuous?branch=master)
 
